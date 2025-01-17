@@ -9,7 +9,7 @@ function Hero() {
           <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
               <h1 className="text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
-                Where Comfort Meets {""}
+                Where Comfort Meets
                 <div className="relative inline-flex">
                   <span className="absolute inset-x-0 bottom-0 border-b-[30px] border-[#4ADE80]"></span>
                   <h1 className="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
