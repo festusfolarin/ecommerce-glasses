@@ -9,7 +9,16 @@ import { connectToDatabase } from "./config/mongodbConnection.js";
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.use(cors()); //to resolve port conflict
+app.use(
+  cors({
+    origin: [
+      "https://ecommerce-glasses-seven.vercel.app/",
+      "https://ecommerce-glasses-seven.vercel.app",
+      "http://localhost:5173/",
+      "http://localhost:5173",
+    ],
+  })
+); //to resolve port conflict
 app.use(express.json()); //to access data from frontend
 
 app.get("/health", (req, res) => {
