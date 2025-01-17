@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  @apply text-[#4ADE80];
+}
+
+* {
+  @apply font-["Poppins"];
+}
