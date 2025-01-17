@@ -7,11 +7,7 @@ function CTAButton({ buttonText }) {
         {buttonText}
       </span>
 
-      <a
-        href="#"
-        title=""
-        className="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80"
-      >
+      <div className="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80">
         {/* <svg
           className="w-10 h-10 mr-3"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +34,7 @@ function CTAButton({ buttonText }) {
           <Glasses size={19} color="#2A9752" />
         </div>
         <span>&nbsp; Custom request</span>
-      </a>
+      </div>
     </div>
   );
 }
