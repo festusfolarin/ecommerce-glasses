@@ -43,7 +43,7 @@ const CartItemCard = ({
               </button>
               <input
                 className="h-8 w-8 border bg-white text-center text-xs outline-none"
-                value={product_quantity}
+                defaultValue={product_quantity}
               />
               <button
                 onClick={() => dispatch(increaseCartItemQty(product_id))}
