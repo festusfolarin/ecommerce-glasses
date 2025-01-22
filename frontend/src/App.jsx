@@ -5,7 +5,7 @@ import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import MainLayout from "./layout/MainLayout";
 import Checkout from "./pages/Checkout";
-import Admin from "./pages/protected/admin";
+import Admin from "./pages/protected/Admin";
 import OrderDetails from "./pages/protected/OrderDetails";
 
 function App() {
