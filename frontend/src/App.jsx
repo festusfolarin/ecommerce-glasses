@@ -5,6 +5,8 @@ import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import MainLayout from "./layout/MainLayout";
 import Checkout from "./pages/Checkout";
+import Admin from "./pages/protected/admin";
+import OrderDetails from "./pages/protected/OrderDetails";
 
 function App() {
   return (
@@ -17,6 +19,11 @@ function App() {
         </Route>
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+
+        <Route path="/admin">
+          <Route index element={<Admin />} />
+          <Route path=":order_id" element={<OrderDetails />} />
+        </Route>
       </Route>
     </Routes>
   );
