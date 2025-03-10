@@ -1,9 +1,18 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { ShoppingCart } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { LogIn, LogOut } from "lucide-react";
+import { updateUser } from "../../features/user/userSlice";
 
 function Navbar() {
   const { cartItems } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function handleUserLogout() {
+    dispatch(updateUser(null));
+    navigate("/");
+  }
   return (
     <nav className=" px-9 py-5 sticky top-0 z-[9999] text-white bg-black">
       <section className="container mx-auto flex justify-between items-center">
@@ -42,6 +51,47 @@ function Navbar() {
               </p> */}
             </div>
           </NavLink>
+
+          {user !== null && user.userType === "admin" ? (
+            <div
+              className={
+                "tracking-wider flex gap-2 text-gray-400 hover:text-[#4ADE80]"
+              }
+            >
+              <p>Admin</p>
+            </div>
+          ) : (
+            user !== null && (
+              <NavLink
+                to={"/profile"}
+                className={
+                  "tracking-wider flex gap-2 text-white hover:text-[#4ADE80]"
+                }
+              >
+                <p>{user.name.split(" ").slice(0, 1)}</p>
+              </NavLink>
+            )
+          )}
+
+          {user === null ? (
+            <NavLink
+              className={
+                "tracking-wider flex gap-2 text-gray-400 hover:text-[#4ADE80]"
+              }
+              to={"/login"}
+            >
+              <LogIn strokeWidth={2} /> <span>Login</span>
+            </NavLink>
+          ) : (
+            <button
+              onClick={handleUserLogout}
+              className={
+                "tracking-wider flex gap-2 text-gray-400 hover:text-[#4ADE80]"
+              }
+            >
+              <LogOut strokeWidth={2} /> <span>Logout</span>
+            </button>
+          )}
         </div>
       </section>
     </nav>

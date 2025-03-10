@@ -3,6 +3,8 @@ import axios from "axios";
 import { formatCurrency, serverUrl } from "../../utils/helper";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { Phone, Mail } from "lucide-react";
+import BackButton from "../../components/ui/buttons/BackButton";
 
 const OrderDetails = () => {
   const params = useParams();
@@ -60,6 +62,7 @@ const OrderDetails = () => {
     <section>
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
         <div className="flex justify-start item-start space-y-2 flex-col">
+          <BackButton />
           <h1 className="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
             Order #{orderInformation.reference.transaction}
           </h1>
@@ -238,52 +241,14 @@ const OrderDetails = () => {
                 </div>
 
                 <div className="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3 7L12 13L21 7"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <Mail size={22} strokeWidth={1} />
                   <p className="cursor-pointer text-sm leading-5 ">
                     {orderInformation.customerDeliveryInfo.email}
                   </p>
                 </div>
 
                 <div className="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M3 7L12 13L21 7"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <Phone size={22} strokeWidth={1} />
                   <p className="cursor-pointer text-sm leading-5 ">
                     {orderInformation.customerDeliveryInfo.phoneNumber}
                   </p>
