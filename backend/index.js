@@ -5,29 +5,29 @@ import cors from "cors";
 import ordersRoutes from "./routes/ordersRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 
-import passport from "passport";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import session from "express-session";
+// import passport from "passport";
+// import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+// import session from "express-session";
 
 import { connectToDatabase } from "./config/mongodbConnection.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5173/auth/google/callback",
-    },
-    function (accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ googleId: profile.id }, function (err, user) {
-        return cb(err, user);
-      });
-    }
-  )
-);
+// passport.use(
+//   new GoogleStrategy(
+//     {
+//       clientID: process.env.GOOGLE_CLIENT_ID,
+//       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//       callbackURL: "http://localhost:5173/auth/google/callback",
+//     },
+//     function (accessToken, refreshToken, profile, cb) {
+//       User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//         return cb(err, user);
+//       });
+//     }
+//   )
+// );
 
 app.use(
   cors({
